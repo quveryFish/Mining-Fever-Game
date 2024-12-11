@@ -18,7 +18,7 @@ public class StoneSpawnScript : MonoBehaviour
         {
             if (spawnList.Count < 5)
             {
-                spawnPoint = new Vector2(Random.Range(8.5f, -8.5f), Random.Range(3.5f, -4.5f));
+                spawnPoint = new Vector2(Random.Range(7.5f, -7.5f), Random.Range(2.5f, -3.5f));
                 newObject = Instantiate(prefab, spawnPoint, Quaternion.identity, parent);
                 spawnList.Add(newObject);
             }

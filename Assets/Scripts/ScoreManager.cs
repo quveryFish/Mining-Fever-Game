@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
-    private float timer = 1f;
+    private float timer = 2f;
 
 
     [SerializeField] private int score = 0;
@@ -14,8 +14,9 @@ public class ScoreManager : MonoBehaviour
         if (timer <= 0)
         {
             Debug.Log(score);
+            timer = 2f;
         }
-        timer = 1f;
+
     }
 
 

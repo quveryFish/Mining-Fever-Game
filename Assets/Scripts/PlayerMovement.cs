@@ -13,6 +13,14 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         movementDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            gameObject.transform.localScale = new Vector3(1, 1, 1);
+        }
+        else if (Input.GetKeyDown(KeyCode.D))
+        {
+            gameObject.transform.localScale = new Vector3(-1, 1, 1);
+        }
 
     }
     private void FixedUpdate()

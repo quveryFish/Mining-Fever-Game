@@ -282,13 +282,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 6420868155634982905, guid: ba2f71de28289d34cbd21ce5e4387575, type: 3}
-  spawnList:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  time: 3
+  parent: {fileID: 315411684}
+  spawnList: []
+  timerTime: 3
 --- !u!4 &315411684
 Transform:
   m_ObjectHideFlags: 0
@@ -434,6 +430,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &495786133 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 886435092719144148, guid: 885d75c1298ffd84ab0c930eb6f1c9c3, type: 3}
+  m_PrefabInstance: {fileID: 5059362254201182711}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &495786139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 495786133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 009141017ef272f48be06d1e0618dd26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stonesSpawn: {fileID: 315411683}
 --- !u!1 &615291987
 GameObject:
   m_ObjectHideFlags: 0
@@ -960,7 +974,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 886435092719144148, guid: 885d75c1298ffd84ab0c930eb6f1c9c3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 495786139}
   m_SourcePrefab: {fileID: 100100000, guid: 885d75c1298ffd84ab0c930eb6f1c9c3, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

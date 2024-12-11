@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class PlayerBreakStones : MonoBehaviour
 {
+    [SerializeField] private ScoreManager scoreManager;
     [SerializeField] private StoneSpawnScript stonesSpawn;
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -10,6 +11,7 @@ public class PlayerBreakStones : MonoBehaviour
         {
             stonesSpawn.spawnList.Remove(collision.gameObject);
             Destroy(collision.gameObject);
+            scoreManager.AddScore(1);
 
         }
     }

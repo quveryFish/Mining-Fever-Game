@@ -1,10 +1,12 @@
 using System.Threading;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
     private float timer = 2f;
 
+    [SerializeField] private Text uitext;
 
     [SerializeField] private int score = 0;
 
@@ -23,11 +25,13 @@ public class ScoreManager : MonoBehaviour
     public void AddScore(int scoreAmount)
     {
         score += scoreAmount;
+        uitext.text = $"Score: {score.ToString()} ";
     }
 
     public void RemoveScore(int scoreAmount)
     {
         score -= scoreAmount;
+        uitext.text = $"Score: {score.ToString()} ";
     }
 
 

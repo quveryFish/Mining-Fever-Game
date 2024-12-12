@@ -7,7 +7,7 @@ public class ScoreManager : MonoBehaviour
 
     [SerializeField] private Text uitext;
 
-    [SerializeField] private int score = 0;
+    public int score = 0;
     public void AddScore(int scoreAmount)
     {
         score += scoreAmount;
@@ -16,8 +16,8 @@ public class ScoreManager : MonoBehaviour
 
     public void RemoveScore(int scoreAmount)
     {
-        score -= scoreAmount;
-        uitext.text = $"Score: {score.ToString()} ";
+            score -= scoreAmount;
+            uitext.text = $"Score: {score.ToString()} ";
     }
 
 

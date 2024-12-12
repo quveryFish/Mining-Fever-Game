@@ -6,7 +6,7 @@ public class StoneSpawnScript : MonoBehaviour
     [SerializeField] private GameObject prefab;
     [SerializeField] private Transform parent;
     [SerializeField] public List<GameObject> spawnList = new List<GameObject>();
-    [SerializeField] private float timerTime = 3f;
+    public float timerTime = 3f;
     private float timer = 3f;
     private Vector2 spawnPoint;
     private GameObject newObject;

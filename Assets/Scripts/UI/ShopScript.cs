@@ -14,7 +14,7 @@ public class ShopScript : MonoBehaviour
 
     private int aceleratorCount = 1;
     private int spaceCount =1;
-    private int valueCount = 1;
+    private float valueCount = 1;
 
 
     public void ActivateShop()
@@ -61,7 +61,7 @@ public class ShopScript : MonoBehaviour
         {
             scoreManager.RemoveScore(20 * valueCount);
             breakStones.scoreForBreak++;
-            valueCount++;
+            valueCount += 1.5f;
             textValue.text = $"More rocks value - {20 * valueCount} points";
         }
     }

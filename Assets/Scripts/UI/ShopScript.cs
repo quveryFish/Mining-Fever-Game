@@ -5,13 +5,16 @@ public class ShopScript : MonoBehaviour
 {
     [SerializeField] private ScoreManager scoreManager;
     [SerializeField] private StoneSpawnScript stoneSpawnScript;
+    [SerializeField] private PlayerBreakStones breakStones;
 
     [SerializeField] private Text textAccel;
     [SerializeField] private Text textSpace;
+    [SerializeField] private Text textValue;
     [SerializeField] private GameObject panel;
 
     private int aceleratorCount = 1;
     private int spaceCount =1;
+    private int valueCount = 1;
 
 
     public void ActivateShop()
@@ -36,7 +39,6 @@ public class ShopScript : MonoBehaviour
         {
             Debug.Log("Not enough money");
         }
-
     }
 
     public void BuyFasterSpawn()
@@ -53,5 +55,14 @@ public class ShopScript : MonoBehaviour
             Debug.Log("Not enough money");
         }
     }
-
+    public void BuyOreMoreValue()
+    {
+        if (scoreManager.score >= 20 * valueCount)
+        {
+            scoreManager.RemoveScore(20 * valueCount);
+            breakStones.scoreForBreak++;
+            valueCount++;
+            textValue.text = $"More rocks value - {20 * valueCount} points";
+        }
+    }
 }

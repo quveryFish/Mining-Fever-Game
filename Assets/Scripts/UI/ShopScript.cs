@@ -5,7 +5,6 @@ public class ShopScript : MonoBehaviour
 {
     [SerializeField] private ScoreManager scoreManager;
     [SerializeField] private StoneSpawnScript stoneSpawnScript;
-    [SerializeField] private PlayerBreakStones breakStones;
 
     [SerializeField] private Text textAccel;
     [SerializeField] private Text textSpace;
@@ -14,8 +13,9 @@ public class ShopScript : MonoBehaviour
 
     private int aceleratorCount = 1;
     private int spaceCount =1;
-    private float valueCount = 1;
+    private int valueCount = 1;
 
+    private int scoreForBreak =1;
 
     public void ActivateShop()
     {
@@ -60,9 +60,13 @@ public class ShopScript : MonoBehaviour
         if (scoreManager.score >= 20 * valueCount)
         {
             scoreManager.RemoveScore(20 * valueCount);
-            breakStones.scoreForBreak++;
-            valueCount += 1.5f;
+            scoreForBreak++;
+            valueCount += 3;
             textValue.text = $"More rocks value - {20 * valueCount} points";
         }
+    }
+    public int GetScoreForBreak()
+    {
+        return scoreForBreak;
     }
 }

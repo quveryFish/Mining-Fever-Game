@@ -13,11 +13,11 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         movementDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
             gameObject.transform.localScale = new Vector3(1, 1, 1);
         }
-        else if (Input.GetKeyDown(KeyCode.D))
+        else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
         {
             gameObject.transform.localScale = new Vector3(-1, 1, 1);
         }

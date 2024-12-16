@@ -938,7 +938,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreManager: {fileID: 1421851059}
   stonesSpawn: {fileID: 315411683}
-  scoreForBreak: 1
 --- !u!1 &615291987
 GameObject:
   m_ObjectHideFlags: 0
@@ -2352,7 +2351,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreManager: {fileID: 1421851059}
   stoneSpawnScript: {fileID: 315411683}
-  breakStones: {fileID: 495786139}
   textAccel: {fileID: 637736035}
   textSpace: {fileID: 1048554567}
   textValue: {fileID: 1840160292}
@@ -3319,6 +3317,10 @@ PrefabInstance:
     - target: {fileID: 4939783482160265824, guid: 885d75c1298ffd84ab0c930eb6f1c9c3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7012385036970968777, guid: 885d75c1298ffd84ab0c930eb6f1c9c3, type: 3}
+      propertyPath: speed
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

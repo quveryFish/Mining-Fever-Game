@@ -9,11 +9,21 @@ public class ShopScript : MonoBehaviour
     [SerializeField] private Text textAccel;
     [SerializeField] private Text textSpace;
     [SerializeField] private Text textValue;
+
+    [SerializeField] private Text countTextSpace;
+    [SerializeField] private Text countTextAccel;
+    [SerializeField] private Text countTextValue;
+
+
     [SerializeField] private GameObject panel;
 
-    private int aceleratorCount = 1;
-    private int spaceCount =1;
-    private int valueCount = 1;
+    private int aceleratorCostCount = 1;
+    private int spaceCostCount =1;
+    private int valueCostCount = 1;
+
+    private int aceleratorCount = 0;
+    private int spaceCount = 0;
+    private int valueCount = 0;
 
     private int scoreForBreak =1;
 
@@ -28,12 +38,15 @@ public class ShopScript : MonoBehaviour
 
     public void BuyMoreSpaceOne()
     {
-        if (scoreManager.score >= 2 * spaceCount)
+        if (scoreManager.score >= 2 * spaceCostCount)
         {
-            scoreManager.RemoveScore(2 * spaceCount);
+            scoreManager.RemoveScore(2 * spaceCostCount);
             stoneSpawnScript.listLimit += 1;
+
             spaceCount++;
-            textSpace.text = $"More rocks - {2 * spaceCount} points";
+            countTextSpace.text = $"+{spaceCount} - x{spaceCount}";
+            spaceCostCount++;
+            textSpace.text = $"More rocks - {2 * spaceCostCount} points";
         }
         else
         {
@@ -43,12 +56,16 @@ public class ShopScript : MonoBehaviour
 
     public void BuyFasterSpawn()
     {
-        if (scoreManager.score >= 5 * aceleratorCount)
+        if (scoreManager.score >= 5 * aceleratorCostCount)
         {
-            scoreManager.RemoveScore(5 * aceleratorCount);
+            scoreManager.RemoveScore(5 * aceleratorCostCount);
             stoneSpawnScript.timerTime -= 0.5f;
+
             aceleratorCount++;
-            textAccel.text = $"Faster rocks spawn - {5 * aceleratorCount} points";
+            countTextAccel.text = $"{stoneSpawnScript.timerTime} sec - x{aceleratorCount}";
+
+            aceleratorCostCount++;
+            textAccel.text = $"Faster rocks spawn - {5 * aceleratorCostCount} points";
         }
         else
         {
@@ -57,12 +74,16 @@ public class ShopScript : MonoBehaviour
     }
     public void BuyOreMoreValue()
     {
-        if (scoreManager.score >= 20 * valueCount)
+        if (scoreManager.score >= 20 * valueCostCount)
         {
-            scoreManager.RemoveScore(20 * valueCount);
+            scoreManager.RemoveScore(20 * valueCostCount);
             scoreForBreak++;
-            valueCount += 3;
-            textValue.text = $"More rocks value - {20 * valueCount} points";
+
+            valueCount++;
+            countTextValue.text = $"+{valueCount} - x{valueCount}";
+
+            valueCostCount += 3;
+            textValue.text = $"More rocks value - {20 * valueCostCount} points";
         }
     }
     public int GetScoreForBreak()

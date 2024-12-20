@@ -6,7 +6,8 @@ public class PlayerBreakStones : MonoBehaviour
     [SerializeField] private ScoreManager scoreManager;
     [SerializeField] private StoneSpawnScript stonesSpawn;
 
-    //public int scoreForBreak =1;
+    [SerializeField] private AudioSource breakSound;
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.GetComponent<OreBreakScript>())
@@ -15,6 +16,8 @@ public class PlayerBreakStones : MonoBehaviour
             scoreManager.AddScore(collision.gameObject.GetComponent<OreBreakScript>().scoreForBreak);
             stonesSpawn.spawnList.Remove(collision.gameObject);
             Destroy(collision.gameObject);
+            breakSound.Play();
+
 
 
         }

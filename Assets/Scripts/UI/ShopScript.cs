@@ -14,6 +14,7 @@ public class ShopScript : MonoBehaviour
     [SerializeField] private Text countTextAccel;
     [SerializeField] private Text countTextValue;
 
+    [SerializeField] private AudioSource upgradeSound;
 
     [SerializeField] private GameObject panel;
 
@@ -43,6 +44,8 @@ public class ShopScript : MonoBehaviour
             scoreManager.RemoveScore(2 * spaceCostCount);
             stoneSpawnScript.listLimit += 1;
 
+            upgradeSound.Play();
+
             spaceCount++;
             countTextSpace.text = $"+{spaceCount} - x{spaceCount}";
             spaceCostCount++;
@@ -61,6 +64,8 @@ public class ShopScript : MonoBehaviour
             scoreManager.RemoveScore(5 * aceleratorCostCount);
             stoneSpawnScript.timerTime -= 0.5f;
 
+            upgradeSound.Play();
+
             aceleratorCount++;
             countTextAccel.text = $"{stoneSpawnScript.timerTime} sec - x{aceleratorCount}";
 
@@ -78,6 +83,8 @@ public class ShopScript : MonoBehaviour
         {
             scoreManager.RemoveScore(20 * valueCostCount);
             scoreForBreak++;
+
+            upgradeSound.Play();
 
             valueCount++;
             countTextValue.text = $"+{valueCount} - x{valueCount}";

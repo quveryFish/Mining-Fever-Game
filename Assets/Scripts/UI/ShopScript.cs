@@ -15,6 +15,7 @@ public class ShopScript : MonoBehaviour
     [SerializeField] private Text countTextValue;
 
     [SerializeField] private AudioSource upgradeSound;
+    [SerializeField] private AudioSource denySound;
 
     [SerializeField] private GameObject panel;
 
@@ -54,6 +55,7 @@ public class ShopScript : MonoBehaviour
         else
         {
             Debug.Log("Not enough money");
+            denySound.Play();
         }
     }
 
@@ -79,6 +81,7 @@ public class ShopScript : MonoBehaviour
         else
         {
             Debug.Log("Not enough money");
+            denySound.Play();
         }
     }
     public void BuyOreMoreValue()
@@ -96,6 +99,12 @@ public class ShopScript : MonoBehaviour
             valueCostCount += 3;
             textValue.text = $"More rocks value - {20 * valueCostCount} points";
         }
+        else
+        {
+            Debug.Log("Not enough money");
+            denySound.Play();
+        }
+
     }
     public int GetScoreForBreak()
     {

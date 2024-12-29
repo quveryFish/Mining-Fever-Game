@@ -63,9 +63,9 @@ public class ShopScript : MonoBehaviour
         {
             scoreManager.RemoveScore(5 * aceleratorCostCount);
             stoneSpawnScript.timerTime -= 0.5f;
-            if (stoneSpawnScript.timerTime < 0.5f)
+            if (stoneSpawnScript.timerTime < 0)
             {
-                stoneSpawnScript.timerTime = 0.1f;
+                stoneSpawnScript.timerTime = 0.2f;
             }
 
             upgradeSound.Play();
@@ -73,7 +73,7 @@ public class ShopScript : MonoBehaviour
             aceleratorCount++;
             countTextAccel.text = $"{stoneSpawnScript.timerTime} sec - x{aceleratorCount}(-0.5)";
 
-            aceleratorCostCount +=2;
+            aceleratorCostCount++;
             textAccel.text = $"Faster rocks spawn - {5 * aceleratorCostCount} points";
         }
         else

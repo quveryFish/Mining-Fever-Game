@@ -47,6 +47,9 @@ TagManager:
   - name: Map
     uniqueID: 659720869
     locked: 0
+  - name: Barrier
+    uniqueID: 2463345705
+    locked: 0
   - name: Ores
     uniqueID: 2222964767
     locked: 0

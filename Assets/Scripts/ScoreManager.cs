@@ -11,13 +11,13 @@ public class ScoreManager : MonoBehaviour
     public void AddScore(int scoreAmount)
     {
         score += scoreAmount;
-        uitext.text = $"Score: {score.ToString()} ";
+        uitext.text = $"{score.ToString()} $";
     }
 
     public void RemoveScore(int scoreAmount)
     {
             score -= scoreAmount;
-            uitext.text = $"Score: {score.ToString()} ";
+            uitext.text = $"{score.ToString()} $";
     }
 
 

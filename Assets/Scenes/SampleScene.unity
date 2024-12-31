@@ -921,7 +921,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Score: 0'
+  m_Text: 0 $
 --- !u!222 &439861615
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1326,7 +1326,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Faster rocks spawn - 5 points
+  m_Text: Faster rocks spawn - 5 $
 --- !u!222 &637736036
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2295,7 +2295,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: More rocks - 2 points
+  m_Text: More rocks - 2 $
 --- !u!222 &1048554568
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3547,7 +3547,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: More rocks value - 20 points
+  m_Text: More rocks value - 20 $
 --- !u!222 &1840160293
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3966,23 +3966,23 @@ PrefabInstance:
       objectReference: {fileID: 1421851059}
     - target: {fileID: 4847206085352689265, guid: 885d75c1298ffd84ab0c930eb6f1c9c3, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.23
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 4847206085352689265, guid: 885d75c1298ffd84ab0c930eb6f1c9c3, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.23
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 4847206085352689265, guid: 885d75c1298ffd84ab0c930eb6f1c9c3, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.23
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 4847206085352689265, guid: 885d75c1298ffd84ab0c930eb6f1c9c3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.035
+      value: -0.052
       objectReference: {fileID: 0}
     - target: {fileID: 4847206085352689265, guid: 885d75c1298ffd84ab0c930eb6f1c9c3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.359
+      value: 0.421
       objectReference: {fileID: 0}
     - target: {fileID: 4847206085352689265, guid: 885d75c1298ffd84ab0c930eb6f1c9c3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4126,11 +4126,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9095383727592463146, guid: 885d75c1298ffd84ab0c930eb6f1c9c3, type: 3}
       propertyPath: m_Radius
-      value: 0.67869025
+      value: 0.6194395
+      objectReference: {fileID: 0}
+    - target: {fileID: 9095383727592463146, guid: 885d75c1298ffd84ab0c930eb6f1c9c3, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.004232168
       objectReference: {fileID: 0}
     - target: {fileID: 9095383727592463146, guid: 885d75c1298ffd84ab0c930eb6f1c9c3, type: 3}
       propertyPath: m_Offset.y
-      value: 0.10746652
+      value: 0.30214727
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

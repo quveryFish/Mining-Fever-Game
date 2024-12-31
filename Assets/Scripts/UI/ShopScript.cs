@@ -49,8 +49,8 @@ public class ShopScript : MonoBehaviour
 
             spaceCount++;
             countTextSpace.text = $"{stoneSpawnScript.listLimit} - x{spaceCount}(+1)";
-            spaceCostCount++;
-            textSpace.text = $"More rocks - {2 * spaceCostCount} points";
+            spaceCostCount += 2;
+            textSpace.text = $"More rocks - {2 * spaceCostCount} $";
         }
         else
         {
@@ -65,9 +65,9 @@ public class ShopScript : MonoBehaviour
         {
             scoreManager.RemoveScore(5 * aceleratorCostCount);
             stoneSpawnScript.timerTime -= 0.5f;
-            if (stoneSpawnScript.timerTime < 0)
+            if (stoneSpawnScript.timerTime <= 0)
             {
-                stoneSpawnScript.timerTime = 0.2f;
+                stoneSpawnScript.timerTime = 0.1f;
             }
 
             upgradeSound.Play();
@@ -75,8 +75,8 @@ public class ShopScript : MonoBehaviour
             aceleratorCount++;
             countTextAccel.text = $"{stoneSpawnScript.timerTime} sec - x{aceleratorCount}(-0.5)";
 
-            aceleratorCostCount++;
-            textAccel.text = $"Faster rocks spawn - {5 * aceleratorCostCount} points";
+            aceleratorCostCount *= 2;
+            textAccel.text = $"Faster rocks spawn - {5 * aceleratorCostCount} $";
         }
         else
         {
@@ -96,8 +96,8 @@ public class ShopScript : MonoBehaviour
             valueCount++;
             countTextValue.text = $"{scoreForBreak} - x{valueCount}(+1)";
 
-            valueCostCount += 3;
-            textValue.text = $"More rocks value - {20 * valueCostCount} points";
+            valueCostCount *= 2;
+            textValue.text = $"More rocks value - {20 * valueCostCount} $";
         }
         else
         {

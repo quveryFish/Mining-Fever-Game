@@ -40,16 +40,16 @@ public class ShopScript : MonoBehaviour
 
     public void BuyMoreSpaceOne()
     {
-        if (scoreManager.score >= 2 * spaceCostCount)
+        if (scoreManager.score >= 3 * spaceCostCount)
         {
-            scoreManager.RemoveScore(2 * spaceCostCount);
+            scoreManager.RemoveScore(3 * spaceCostCount);
             stoneSpawnScript.listLimit += 1;
 
             upgradeSound.Play();
 
             spaceCount++;
             countTextSpace.text = $"{stoneSpawnScript.listLimit} - x{spaceCount}(+1)";
-            spaceCostCount += 2;
+            spaceCostCount *= 2;
             textSpace.text = $"More rocks - {2 * spaceCostCount} $";
         }
         else
@@ -75,7 +75,7 @@ public class ShopScript : MonoBehaviour
             aceleratorCount++;
             countTextAccel.text = $"{stoneSpawnScript.timerTime} sec - x{aceleratorCount}(-0.5)";
 
-            aceleratorCostCount *= 2;
+            aceleratorCostCount *= 3;
             textAccel.text = $"Faster rocks spawn - {5 * aceleratorCostCount} $";
         }
         else
@@ -96,7 +96,7 @@ public class ShopScript : MonoBehaviour
             valueCount++;
             countTextValue.text = $"{scoreForBreak} - x{valueCount}(+1)";
 
-            valueCostCount *= 2;
+            valueCostCount *= 4;
             textValue.text = $"More rocks value - {20 * valueCostCount} $";
         }
         else

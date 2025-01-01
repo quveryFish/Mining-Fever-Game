@@ -3614,7 +3614,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uitext: {fileID: 439861614}
-  score: 200
+  score: 0
 --- !u!4 &1421851060
 Transform:
   m_ObjectHideFlags: 0
@@ -4148,20 +4148,21 @@ MonoBehaviour:
   upgradeSound: {fileID: 844595395}
   panel: {fileID: 221307899}
   player: {fileID: 834343867}
+  origPlayer: {fileID: 21300000, guid: f7eba1af1263f59459d0a3e4a7de70e3, type: 3}
   skins:
   - name: Red
-    color: {r: 1, g: 0, b: 0, a: 1}
+    spriteImg: {fileID: 21300000, guid: 53c068b2f92e8b342b62a7def343916f, type: 3}
     cost: 50
     buttonText: {fileID: 2027002744}
     isPurchased: 0
   - name: Blue
-    color: {r: 0, g: 0, b: 1, a: 1}
+    spriteImg: {fileID: 21300000, guid: 1c8b6dcee7454424b922bf7c5cd4df94, type: 3}
     cost: 50
     buttonText: {fileID: 124611685}
     isPurchased: 0
   - name: Green
-    color: {r: 0, g: 1, b: 0, a: 1}
-    cost: 50
+    spriteImg: {fileID: 21300000, guid: 959ac3e6329f60a42a14a7f9cb816122, type: 3}
+    cost: 500
     buttonText: {fileID: 155292260}
     isPurchased: 0
 --- !u!1 &1490076765

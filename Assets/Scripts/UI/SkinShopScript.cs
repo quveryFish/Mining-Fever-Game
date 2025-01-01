@@ -12,11 +12,13 @@ public class SkinShopScript : MonoBehaviour
 
     [SerializeField] private GameObject player;
 
+    [SerializeField] private Sprite origPlayer;
+
     [System.Serializable]
     public class Skin
     {
         public string name;
-        public Color color;
+        public Sprite spriteImg;
         public int cost;
         public Text buttonText;
         public bool isPurchased;
@@ -31,7 +33,7 @@ public class SkinShopScript : MonoBehaviour
 
     public void ResetSkin()
     {
-        player.GetComponent<SpriteRenderer>().color = Color.white;
+        player.GetComponent<SpriteRenderer>().sprite = origPlayer;
         ResetSkinUI();
         upgradeSound.Play();
     }
@@ -41,7 +43,7 @@ public class SkinShopScript : MonoBehaviour
         if (skinIndex < 0 || skinIndex >= skins.Length)
         {
             Debug.LogError("Index Error!");
-            return;//
+            return;
         }
 
         Skin selectedSkin = skins[skinIndex];
@@ -49,7 +51,7 @@ public class SkinShopScript : MonoBehaviour
         if (!selectedSkin.isPurchased && scoreManager.score >= selectedSkin.cost)
         {
             scoreManager.RemoveScore(selectedSkin.cost);
-            player.GetComponent<SpriteRenderer>().color = selectedSkin.color;
+            player.GetComponent<SpriteRenderer>().sprite = selectedSkin.spriteImg;
 
             selectedSkin.isPurchased = true;
             selectedSkin.cost = 0;
@@ -61,7 +63,7 @@ public class SkinShopScript : MonoBehaviour
         }
         else if (selectedSkin.isPurchased)
         {
-            player.GetComponent<SpriteRenderer>().color = selectedSkin.color;
+            player.GetComponent<SpriteRenderer>().sprite = selectedSkin.spriteImg;
 
             ResetOtherButtons(skinIndex);
             selectedSkin.buttonText.text = "Equiped";
@@ -94,7 +96,7 @@ public class SkinShopScript : MonoBehaviour
             }
             else
             {
-                skin.buttonText.text = $"Buy ({skin.cost})";
+                skin.buttonText.text = $"Buy - {skin.cost} $";
             }
         }
     }

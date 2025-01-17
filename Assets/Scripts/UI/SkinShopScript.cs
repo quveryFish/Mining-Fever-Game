@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using static SkinShopScript;
 
 public class SkinShopScript : MonoBehaviour
 {
@@ -25,7 +26,6 @@ public class SkinShopScript : MonoBehaviour
     }
 
     [SerializeField] private Skin[] skins;
-
     private void Start()
     {
         ResetSkinUI();
@@ -47,16 +47,18 @@ public class SkinShopScript : MonoBehaviour
         }
 
         Skin selectedSkin = skins[skinIndex];
-
         if (!selectedSkin.isPurchased && scoreManager.score >= selectedSkin.cost)
         {
             scoreManager.RemoveScore(selectedSkin.cost);
+
+
             player.GetComponent<SpriteRenderer>().sprite = selectedSkin.spriteImg;
 
             selectedSkin.isPurchased = true;
-            selectedSkin.cost = 0;
-            selectedSkin.buttonText.text = "Equiped";
+                selectedSkin.buttonText.text = "Equip";
+                selectedSkin.cost = 0;//
 
+            selectedSkin.buttonText.text = "Equiped";//
             ResetOtherButtons(skinIndex);
 
             upgradeSound.Play();
@@ -72,6 +74,7 @@ public class SkinShopScript : MonoBehaviour
         else
         {
             Debug.Log("Not enough!");
+            selectedSkin.buttonText.text = $"Buy - {selectedSkin.cost} $";
             denySound.Play();
         }
     }

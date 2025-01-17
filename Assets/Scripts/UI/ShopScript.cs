@@ -25,9 +25,33 @@ public class ShopScript : MonoBehaviour
 
     private int aceleratorCount = 0;
     private int spaceCount = 0;
-    private int valueCount = 0;
+    public int valueCount = 0;
 
     private int scoreForBreak =1;
+
+    //More ores
+    private const string LIST_LIMIT = "ListLimit";
+    private const string SPACE_COUNT = "SpaceCount";
+    private const string SPACE_COST_COUNT = "SpaceCostCount";
+
+    //Acceleration
+    private const string TIMER_TIME = "TimerTime";
+    private const string ACCEL_COUNT = "AceleratorCount";
+    private const string ACCEL_COST_COUNT = "AceleratorCostCount";
+    //MoreValue
+    private const string SCORE_FOR_BREAK = "ScoreForBreak";
+    private const string VALUE_COUNT = "ValueCount";
+    private const string VALUE_COST_COUNT = "valueCostCount";
+
+    private void Awake()
+    {
+        SetSavesAll();
+
+        GetScoreForBreak();
+        RefreshAllText();
+    }
+
+
 
     public void ActivateShop()
     {
@@ -37,6 +61,7 @@ public class ShopScript : MonoBehaviour
     {
         panel.SetActive(false);
     }
+
 
     public void BuyMoreSpaceOne()
     {
@@ -50,7 +75,9 @@ public class ShopScript : MonoBehaviour
             spaceCount++;
             countTextSpace.text = $"{stoneSpawnScript.listLimit} - x{spaceCount}(+1)";
             spaceCostCount *= 2;
-            textSpace.text = $"More rocks - {2 * spaceCostCount} $";
+            textSpace.text = $"Upgrade max ores limit - {3 * spaceCostCount} $";
+
+            SaveSpace();
         }
         else
         {
@@ -58,7 +85,6 @@ public class ShopScript : MonoBehaviour
             denySound.Play();
         }
     }
-
     public void BuyFasterSpawn()
     {
         if (scoreManager.score >= 5 * aceleratorCostCount)
@@ -76,7 +102,9 @@ public class ShopScript : MonoBehaviour
             countTextAccel.text = $"{stoneSpawnScript.timerTime} sec - x{aceleratorCount}(-0.5)";
 
             aceleratorCostCount *= 3;
-            textAccel.text = $"Faster rocks spawn - {5 * aceleratorCostCount} $";
+            textAccel.text = $"Upgrade spawning speed - {5 * aceleratorCostCount} $";
+
+            SaveAccel();
         }
         else
         {
@@ -97,7 +125,9 @@ public class ShopScript : MonoBehaviour
             countTextValue.text = $"{scoreForBreak} - x{valueCount}(+1)";
 
             valueCostCount *= 4;
-            textValue.text = $"More rocks value - {20 * valueCostCount} $";
+            textValue.text = $"Upgrade ore value - {20 * valueCostCount} $";
+
+            SaveValue();
         }
         else
         {
@@ -106,8 +136,70 @@ public class ShopScript : MonoBehaviour
         }
 
     }
+
+
     public int GetScoreForBreak()
     {
         return scoreForBreak;
     }
+
+
+    private void RefreshAllText()
+    {
+        //More ores
+        countTextSpace.text = $"{stoneSpawnScript.listLimit} - x{spaceCount}(+1)";
+        textSpace.text = $"Upgrade max ores limit - {3 * spaceCostCount} $";
+
+        //Acceleration
+        countTextAccel.text = $"{stoneSpawnScript.timerTime} sec - x{aceleratorCount}(-0.5)";
+        textAccel.text = $"Upgrade spawning speed - {5 * aceleratorCostCount} $";
+
+        //MoreValue
+        countTextValue.text = $"{scoreForBreak} - x{valueCount}(+1)";
+        textValue.text = $"Upgrade ore value - {20 * valueCostCount} $";
+
+    }
+
+    private void SetSavesAll()
+    {
+        //More ores
+        stoneSpawnScript.listLimit = PlayerPrefs.GetInt(LIST_LIMIT, 2);
+        spaceCount = PlayerPrefs.GetInt(SPACE_COUNT, 0);
+        spaceCostCount = PlayerPrefs.GetInt(SPACE_COST_COUNT, 1);
+
+        //Acceleration
+        stoneSpawnScript.timerTime = PlayerPrefs.GetFloat(TIMER_TIME, 3f);
+        aceleratorCount = PlayerPrefs.GetInt(ACCEL_COUNT, 0);
+        aceleratorCostCount = PlayerPrefs.GetInt(ACCEL_COST_COUNT, 1);
+        //MoreValue
+        scoreForBreak = PlayerPrefs.GetInt(SCORE_FOR_BREAK, 1);
+        valueCount = PlayerPrefs.GetInt(VALUE_COUNT, 0);
+        valueCostCount = PlayerPrefs.GetInt(VALUE_COST_COUNT, 1);
+    }
+
+    private void SaveAccel()
+    {
+        PlayerPrefs.SetFloat(TIMER_TIME, stoneSpawnScript.timerTime);
+        PlayerPrefs.SetInt(ACCEL_COUNT, aceleratorCount);
+        PlayerPrefs.SetInt(ACCEL_COST_COUNT, aceleratorCostCount);
+
+        PlayerPrefs.Save();
+    }
+    private void SaveSpace()
+    {
+        PlayerPrefs.SetInt(LIST_LIMIT, stoneSpawnScript.listLimit);
+        PlayerPrefs.SetInt(SPACE_COUNT, spaceCount);
+        PlayerPrefs.SetInt(SPACE_COST_COUNT, spaceCostCount);
+
+        PlayerPrefs.Save();
+    }
+    private void SaveValue()
+    {
+        PlayerPrefs.SetInt(SCORE_FOR_BREAK, scoreForBreak);
+        PlayerPrefs.SetInt(VALUE_COUNT, valueCount);
+        PlayerPrefs.SetInt(VALUE_COST_COUNT, valueCostCount);
+
+        PlayerPrefs.Save();
+    }
 }
+

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -6,12 +7,14 @@ public class OreBreakScript : MonoBehaviour
     [SerializeField] private ShopScript ShopScript;
     private Animator Animator;
     public int scoreForBreak = 1;
+    private int valueCount;
 
     private void Start()
     {
         Animator = GetComponent<Animator>();
         ShopScript = FindObjectOfType<ShopScript>();
         scoreForBreak = ShopScript.GetScoreForBreak();
+        valueCount = ShopScript.valueCount;//
     }
 
     private void Update()

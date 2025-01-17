@@ -737,6 +737,7 @@ MonoBehaviour:
   prefab: {fileID: 6420868155634982905, guid: ba2f71de28289d34cbd21ce5e4387575, type: 3}
   parent: {fileID: 315411684}
   spawnList: []
+  valueListMaterial: []
   timerTime: 3
   listLimit: 2
 --- !u!4 &315411684
@@ -781,8 +782,8 @@ Transform:
   m_GameObject: {fileID: 316060060}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0408, y: 5.0682, z: 0}
-  m_LocalScale: {x: 20.458103, y: 3.2439477, z: 1}
+  m_LocalPosition: {x: -0.0408, y: 4.7186, z: 0}
+  m_LocalScale: {x: 20.458103, y: 2.544877, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1042357696}
@@ -1721,7 +1722,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Faster rocks spawn - 5 $
+  m_Text: Upgrade spawning speed - 5 $
 --- !u!222 &637736036
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1757,7 +1758,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 999932435b718674ca309990352f4f7d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ec04736db0d63b546bc9f63efbf91f3e, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 1
@@ -1944,7 +1945,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0.5}
+  m_AnchoredPosition: {x: 0, y: -0.25}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &734470838
@@ -3119,7 +3120,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: More rocks - 3 $
+  m_Text: Upgrade max ores limit - 3 $
 --- !u!222 &1048554568
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4105,6 +4106,7 @@ MonoBehaviour:
   upgradeSound: {fileID: 844595395}
   denySound: {fileID: 729143731}
   panel: {fileID: 987603064}
+  valueCount: 0
 --- !u!114 &1468524398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4828,7 +4830,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: More rocks value - 20 $
+  m_Text: Upgrade ore value - 20 $
 --- !u!222 &1840160293
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4910,7 +4912,7 @@ MonoBehaviour:
   m_Text: 'Are you sure?
 
 
-    All progress will be lost'
+    Skins don''t save'
 --- !u!222 &1909169388
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5745,6 +5747,10 @@ PrefabInstance:
     - target: {fileID: 6692643116985083162, guid: 885d75c1298ffd84ab0c930eb6f1c9c3, type: 3}
       propertyPath: m_Pitch
       value: 0.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 6692643116985083162, guid: 885d75c1298ffd84ab0c930eb6f1c9c3, type: 3}
+      propertyPath: MaxDistance
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 6692643116985083162, guid: 885d75c1298ffd84ab0c930eb6f1c9c3, type: 3}
       propertyPath: DopplerLevel

@@ -42,6 +42,7 @@ public class ShopScript : MonoBehaviour
     private const string SCORE_FOR_BREAK = "ScoreForBreak";
     private const string VALUE_COUNT = "ValueCount";
     private const string VALUE_COST_COUNT = "valueCostCount";
+    private const string COST_FOR_BREAK = "costForBreak";
 
     private void Awake()
     {
@@ -118,7 +119,7 @@ public class ShopScript : MonoBehaviour
         {
             scoreManager.RemoveScore(20 * valueCostCount);
             scoreForBreak++;
-
+            //Debug.Log($"ScoreForBreak {scoreForBreak}");
             upgradeSound.Play();
 
             valueCount++;
@@ -175,6 +176,7 @@ public class ShopScript : MonoBehaviour
         scoreForBreak = PlayerPrefs.GetInt(SCORE_FOR_BREAK, 1);
         valueCount = PlayerPrefs.GetInt(VALUE_COUNT, 0);
         valueCostCount = PlayerPrefs.GetInt(VALUE_COST_COUNT, 1);
+        scoreForBreak = PlayerPrefs.GetInt(COST_FOR_BREAK, 1);
     }
 
     private void SaveAccel()
@@ -198,6 +200,7 @@ public class ShopScript : MonoBehaviour
         PlayerPrefs.SetInt(SCORE_FOR_BREAK, scoreForBreak);
         PlayerPrefs.SetInt(VALUE_COUNT, valueCount);
         PlayerPrefs.SetInt(VALUE_COST_COUNT, valueCostCount);
+        PlayerPrefs.SetInt(COST_FOR_BREAK, scoreForBreak);
 
         PlayerPrefs.Save();
     }

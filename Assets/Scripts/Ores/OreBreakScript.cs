@@ -1,45 +1,38 @@
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class OreBreakScript : MonoBehaviour
 {
-    [SerializeField] private ShopScript ShopScript;
+    private ShopScript shopScript;
+    private StoneSpawnScript stoneSpawnScript;
     private Animator Animator;
+
     public int scoreForBreak = 1;
     private int valueCount;
+
+    [SerializeField] Color finalcolor = Color.green;
 
     private void Start()
     {
         Animator = GetComponent<Animator>();
-        ShopScript = FindObjectOfType<ShopScript>();
-        scoreForBreak = ShopScript.GetScoreForBreak();
-        valueCount = ShopScript.valueCount;//
+
+        shopScript = FindObjectOfType<ShopScript>();
+        scoreForBreak = shopScript.GetScoreForBreak();
+
+        stoneSpawnScript = FindObjectOfType<StoneSpawnScript>();
     }
 
     private void Update()
     {
-        if (scoreForBreak <= 1)
+        if (scoreForBreak <= 9)
         {
-            gameObject.GetComponent<Renderer>().material.color = Color.gray;
-
+            gameObject.GetComponent<SpriteRenderer>().color = stoneSpawnScript.valueListMaterial[scoreForBreak-1];
         }
-        else if (scoreForBreak == 2)
+        else 
         {
-            gameObject.GetComponent<Renderer>().material.color = Color.white;
+            gameObject.GetComponent<SpriteRenderer>().color = stoneSpawnScript.valueListMaterial[stoneSpawnScript.valueListMaterial.Count-1];
         }
-        else if (scoreForBreak == 3)
-        {
-            gameObject.GetComponent<Renderer>().material.color = Color.yellow;
-        }
-        else if (scoreForBreak == 4)
-        {
-            gameObject.GetComponent<Renderer>().material.color = Color.blue;
-        }
-        else if (scoreForBreak >= 5)
-        {
-            gameObject.GetComponent<Renderer>().material.color = Color.cyan;
-        }
+            
     }
 
 }
